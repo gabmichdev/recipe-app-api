@@ -4,6 +4,10 @@ LABEL Gabriel Michel
 ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /requirements.txt
+RUN apt-get update
+RUN apt-get install postgresql postgresql-contrib -y
+RUN apt-get install gcc libc-dev -y
+
 RUN pip install -r /requirements.txt
 
 RUN mkdir  /app
